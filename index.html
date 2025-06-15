@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -47,16 +50,106 @@
                 <p>Una carretera recta pasa por las coordenadas (0,b) y (a,0) medidas respectivamente de un punto de servicio que se quiere conectar mediante una calle recta. ¿En que punto de la carretera se deberá hacer la conexión para que la distancia sea la mínima?<br>Resuelva el problema con b=7 y a=-1.75.</p>
             </div>
             <div id="paso" class="expContainer">
-                <h1>paso 1</h1>
+                <h1>Paso 1</h1>
                 <div id="info">
-                    <p>Poner aqui paso 1 y así sucesivamente del ejercicio.</p>
-                    <p>Habrá un botón de "Siguente" para continuar al siguiente paso.¿?</p>
+                    <p>Para poder encontrar el punto más cercano entre la carretera y el punto de servicio usaremos el Teorema de Pitágoras</p>
+                    $$ c = \sqrt{x^2 + y^2} $$
+                    <p>Tomando en cuenta que \( x \) va a ser una variable independiente y \( y \) dependiente de \( x \)</p>
                 </div>
             </div>
-            <div class="expContainer"></div>
-            <div class="expContainer"></div>
-            <div class="expContainer"></div>
-            <div class="expContainer"></div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 2</h1>
+                
+                    <p>Con los datos que nos da el ejercicio  \( x_1= 0;  y_1 = b;  x_2=a;  y_2=0; \)</p>
+                    <p>sacaremos la pendiente, que es la diferencia de las \( y \) sobre las diferencias de las \( x \)</p>
+                    $$ m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{0 - b}{a - 0} = \frac{-b}{a}$$
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 3</h1>
+                
+                    <p>Teniendo la pendiente, utilizaremos la ecuación Punto Pendiente para tener nuestra ecuación \( y \) y meterla en la formula de \( c \)</p>
+                    $$ y - y_1 = m(x - x_1) $$
+                    $$ y - b = \frac{-b}{a}(x - 0)$$
+                    <p>El resultado de la ecuación es </p>
+                    $$ y = \frac{-b}{a}x + b$$
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 4</h1>
+                
+                    <p>Sustituimos en la fórmula de Pitágoras</p>
+                    $$ c = \sqrt{x^2 + (\frac{-b}{a}x + b)^2} $$
+                    <p>Nuestro intervalo es desde el origen hasta el punto \( a \) porque ahí es donde la carretera va a chocar en la recta de las \( x \)</p>
+                    $$ [0,a] \text{ si } 0 < a $$
+                    $$ [a,0] \text{ si } a < 0 $$
+                    
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 5</h1>
+                
+                    <p>Para minimizar la distancia entre el origen y la recta vamos a derivar la función de Pitágoras </p>
+                    $$ c = (x^2 + \frac{b^2}{a^2}x^2 - 2\frac{b^2}{a}x + b^2)^{1/2} $$
+                    $$ c = (x^2 (1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a}x + b^2)^{1/2} $$
+                    <p>Derivamos parte por parte y tenemos una regla de la cadena</p>
+                    <!--$$ c' = \frac{d[(u)^{1/2}]}{dx}u=x^2 (1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a}x + b^2 $$ -->
+                    $$ c' = \frac{d[(u)^{1/2}]}{dx} = \frac{1}{2} u^{\frac{1}{2}-1} \cdot u' $$
+                    $$ u' = \frac{d[x^2 (1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a}x + b^2]}{dx}=\frac{d[x^2 (1 + \frac{b^2}{a^2})]}{dx} - \frac{d[2\frac{b^2}{a}x + b^2]}{dx} $$
+                    <!--$$ u' = 2x(1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a}(1) + 0 $$ -->
+                    $$ u' = 2x(1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a} $$
+                    <p>Sustituimos \( u \) en la derivada de \( c \)</p>
+                    $$ c' = \frac{1}{2} (x^2 (1 + \frac{b^2}{a^2}) + (2\frac{-b^2}{a}x + b^2)^{-1/2}) \cdot 2x(1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a} $$
+                    $$ c' = \frac{1}{2(x^2 (1 + \frac{b^2}{a^2}) + (2\frac{-b^2}{a}x + b^2)^{1/2})}  \cdot 2x(1 + \frac{b^2}{a^2}) - 2\frac{b^2}{a} = \frac{2(x(1 + \frac{b^2}{a^2}) - \frac{b^2}{a})} {2(x^2 + (\frac{-b}{a}x + b)^2)\frac{1}{2}} $$
+                    <p>El resultado de la funcion derivada es</p>
+                    $$ c' = \frac{x(1 + \frac{b^2}{a^2}) - \frac{b^2}{a}} {(x^2 + (\frac{-b}{a}x + b)^2)\frac{1}{2}} $$
+
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 6</h1>
+                
+                    <p>Igualaremos el numerador de la derivada a cero para encontrar el punto critico y obtener la distancia mínima</p>
+                    $$ x(1 + \frac{b^2}{a^2}) - \frac{b^2}{a} = 0 $$ 
+                    $$ x(1 + \frac{b^2}{a^2}) = \frac{b^2}{a} $$
+                    $$ x = \frac {\frac{b^2}{a}} {(1 + \frac{b^2}{a^2})} = \frac {\frac{b^2}{a}} {(\frac{1}{1} + \frac{b^2}{a^2})} = \frac {\frac{b^2}{a}} {\frac{a^2+b^2}{a^2}}$$
+                    <p>El resultado nos da</p>
+                    $$ x = \frac {a b^2} {(a^2+b^2)}$$
+            
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 7</h1>
+                
+                    <p>Sustituiremos la \( x \) en el resultado que nos dio de la ecuación Punto Pendiente, que nos va a retornar un valor de \( y \)</p>
+                    $$ y = \frac{-b}{a}x + b $$
+                    $$ y = \frac{-b}{a} (\frac {a b^2} {a^2+b^2}) + b $$
+                    $$ y = \frac{-ab^3}{a(a^2+b^2)} + b = \frac{-b^3}{(a^2+b^2)} + b$$
+                    $$ y = \frac{b(a^2+b^2)-b^3}{(a^2+b^2)} = \frac{a^2+b-a^2}{(a^2+b^2)} $$
+                    <p>Como resultado nos da</p>
+                    $$ y = \frac{a^2b}{(a^2+b^2)} $$
+                    <p>Este sería el punto más cercano, desde el origen hasta la carretera</p>
+                    $$ (\frac {a b^2} {(a^2+b^2)},\frac{a^2b}{(a^2+b^2)}) $$
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 8</h1>
+                
+                    <p>Ahora sustituimos en la ecuación \( c = \sqrt{x^2 + (\frac{-b}{a}x + b)^2} \) los resultados obtenidos de \( x \) y \( y \)</p>
+                    $$ c = \sqrt{(\frac {a b^2} {a^2+b^2})^2 + (\frac{a^2b}{a^2+b^2})^2} $$ 
+                    $$ c = \sqrt{\frac {a^2b^4} {(a^2+b^2)^2} + \frac{a^4b^2}{(a^2+b^2)^2}} = \sqrt{\frac {a^2b^4+a^4b^2} {(a^2+b^2)^2}} = \sqrt{\frac {a^2b^2(a^2b^2)} {(a^2+b^2)^2}} $$ 
+                    $$ c = \sqrt{\frac {a^2b^2} {(a^2+b^2)}} $$ 
+                    <p>El resultado queda en valor absoluto por salir de una raíz cuadrada y si fuera negativo no estaría correcto o específico el punto mínimo</p>
+                    $$ c = \frac {|ab|} {\sqrt{a^2+b^2}} $$ 
+                    <p>Nos queda esta coordenada en el punto mínimo de la función</p>
+                    $$ (\frac {a b^2} {a^2+b^2},\frac {|ab|} {\sqrt{a^2+b^2}})$$
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 9</h1>
+                
+                    <p>Sustituir con los datos del ejercicio \( b \)=7 \( a \)=-1.75</p>
+                    <p>Punto de la distancia mínima</p>
+                    $$ x = \frac {a b^2} {a^2+b^2} = \frac {-1.75(49)} {3.06+49} = \frac {-85.75} {52.06} = -1.647$$ 
+                    $$ c = \frac {|ab|} {\sqrt{a^2+b^2}} = \frac {|-1.75(7)|} {\sqrt{(-1.75)^2+(7)^2}} = \frac {12.25} {\sqrt{52.06}} = \frac {12.25} {7.215} = -1.698 $$ 
+                    <p>Punto mínimo en la formula de la distancia en la carretera</p>
+                    $$ (\frac {a b^2} {(a^2+b^2)},\frac{a^2b}{(a^2+b^2)}) $$
+                    $$ x = \frac {a b^2} {a^2+b^2} = \frac {-1.75(49)} {3.06+49} = \frac {-85.75} {52.06} = -1.647$$ 
+                    $$ y = \frac{a^2b}{(a^2+b^2)} = \frac {3.06(7)} {(3.06+49)} = \frac {21.43} {52.06} = 0.4116 $$ 
+            </div>
         </section>
     </main>
 </body>
