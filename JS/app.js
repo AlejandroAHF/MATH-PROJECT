@@ -134,9 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('optX').textContent = x.toFixed(4);
         document.getElementById('optY').textContent = y.toFixed(4);
-        document.getElementById('optC').textContent = C.toFixed(4);// Mostrar GeoGebra desplegable - ya no es necesario mostrarlo aquí
-        // porque ahora siempre está visible
-    });    // Mostrar/ocultar el iframe de GeoGebra
+        document.getElementById('optC').textContent = C.toFixed(4);
+    });    
+    
+    // Mostrar/ocultar el iframe de GeoGebra
     const toggleGeoGebra = document.getElementById('toggleGeoGebra');
     const geogebraFrameWrapper = document.getElementById('geogebraFrameWrapper');
     const geogebraFrameWrapper2 = document.getElementById('geogebraFrameWrapper2');
