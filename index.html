@@ -15,9 +15,27 @@
             <li><button id="btnInicio">Inicio</button></li>
             <li><button id="btnObjetivos">Objetivos</button></li>
             <li><button id="btnIntegrantes">Integrantes</button></li>
+            <li><button id="btnCalculadora">Calculadora</button></li>
         </ul>
     </nav>
     <main>
+        <section id="calculadoraSection" class="expContainer creative-section" style="display:none;">
+            <h2 class="creative-title">Calculadora de Optimización</h2>
+            <form id="optForm">
+                <label for="a">Valor de a:</label>
+                <input type="number" id="a" name="a" step="any" required>
+                <label for="b">Valor de b:</label>
+                <input type="number" id="b" name="b" step="any" required>
+                <button type="submit">Calcular</button>
+            </form>
+            <div id="optResultados" style="margin-top:20px; display:none;">
+                <h3>Resultados</h3>
+                <p><strong>Intervalo para x:</strong> <span id="intervalo"></span></p>
+                <p><strong>Valor óptimo x:</strong> <span id="optX"></span></p>
+                <p><strong>Valor óptimo y:</strong> <span id="optY"></span></p>
+                <p><strong>Distancia mínima C:</strong> <span id="optC"></span></p>
+            </div>
+        </section>
         <section id="inicioSection" class="expContainer creative-section">
             <h1 class="creative-title">¡Bienvenido al Proyecto de Matemáticas!</h1>
             <p class="creative-text">Explora, aprende y resuelve problemas de optimización de manera interactiva y creativa.</p>
@@ -149,6 +167,11 @@
                     $$ (\frac {a b^2} {(a^2+b^2)},\frac{a^2b}{(a^2+b^2)}) $$
                     $$ x = \frac {a b^2} {a^2+b^2} = \frac {-1.75(49)} {3.06+49} = \frac {-85.75} {52.06} = -1.647$$ 
                     $$ y = \frac{a^2b}{(a^2+b^2)} = \frac {3.06(7)} {(3.06+49)} = \frac {21.43} {52.06} = 0.4116 $$ 
+            </div>
+            <div id="paso" class="expContainer">
+                <h1>Paso 10</h1>
+                <p>Visualización interactiva con GeoGebra:</p>
+                <iframe src="https://www.geogebra.org/calculator/w9s78uun?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
             </div>
         </section>
     </main>
