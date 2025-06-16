@@ -1,18 +1,27 @@
-const paso = document.getElementById('paso');
-const info = document.getElementById('info');
+addEventListener('click', () => {
+    const paso = document.getElementsByClassName('paso');
+    const info = document.getElementsByClassName('info');
 
-paso.addEventListener('click', () => {
-    info.classList.toggle('show');
-    if (info.classList.contains('show')) {
-        info.style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), max-height 0.7s cubic-bezier(0.4,0,0.2,1)';
-        info.style.boxShadow = '0 8px 24px rgba(37,117,252,0.13)';
-        info.style.background = '#fff'; // Quitar gradiente, dejar fondo blanco
-        info.style.transform = 'scale(1.03)';
-    } else {
-        info.style.transition = 'opacity 0.5s, max-height 0.5s, box-shadow 0.3s, background 0.3s, transform 0.3s';
-        info.style.boxShadow = '4px 4px 5px rgba(0, 0, 0, 0.1)';
-        info.style.background = '#fff';
-        info.style.transform = 'scale(1)';
+    for (let i = 0; i < paso.length; i++) {
+        paso[i].addEventListener('click', () => {
+            info[i].classList.toggle('show');
+            if (info[i].classList.contains('show')) {
+                info[i].style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), max-height 0.7s cubic-bezier(0.4,0,0.2,1)';
+                info[i].style.boxShadow = '0 8px 24px rgba(37,117,252,0.13)';
+                info[i].style.background = '#fff'; // Quitar gradiente, dejar fondo blanco
+                info[i].style.transform = 'scale(1.03)';
+                paso[i].style.background = '#2575fc'; // Cambiar color del texto al hacer clic
+                paso[i].style.color = '#fff'; // Cambiar color del texto al hacer clic
+                info[i].style.color = '#2575fc'; // Cambiar color del texto al hacer clic
+            } else {
+                info[i].style.transition = 'opacity 0.5s, max-height 0.5s, box-shadow 0.3s, background 0.3s, transform 0.3s';
+                info[i].style.boxShadow = '4px 4px 5px rgba(0, 0, 0, 0.1)';
+                info[i].style.background = '#fff';
+                info[i].style.transform = 'scale(1)';
+                paso[i].style.background = 'transparent'; // Volver a color original
+                paso[i].style.color = '#2575fc'; // Volver a color original
+            }
+        });
     }
 });
 
