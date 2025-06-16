@@ -20,28 +20,37 @@
     </nav>
     <main>
         <section id="calculadoraSection" class="expContainer creative-section" style="display:none;">
-            <h2 class="creative-title">Calculadora de Optimización</h2>
-            <form id="optForm" class="calculadora">
+            <h2 class="creative-title">Calculadora de Optimización</h2>            <div class="calculadora">
                 <div class="brutalist-container">
-                    <input placeholder="ESCRIBE AQUI" class="brutalist-input smooth-type" type="number" id="a" name="a" step="any" required>
-                    <label class="brutalist-label" for="a">Valor de a:</label>
+                    <input placeholder="Escribe el valor de A" class="brutalist-input smooth-type" type="number" id="a" name="a" step="any" required>
+                    <label class="brutalist-label" for="a">Valor de A:</label>
                 </div>
                 <div class="brutalist-container">
-                    <input placeholder="ESCRIBE AQUI" class="brutalist-input smooth-type" type="number" id="b" name="b" step="any" required>
-                    <label class="brutalist-label" for="b">Valor de b:</label>
+                    <input placeholder="Escribe el valor de B" class="brutalist-input smooth-type" type="number" id="b" name="b" step="any" required>
+                    <label class="brutalist-label" for="b">Valor de B:</label>
                 </div>
-                <button type="submit">Calcular</button>
-            </form>
+                <button type="button" id="calcularBtn">Calcular</button>
+            </div>
             <div id="optResultados" style="margin-top:20px; display:none;">
                 <h3>Resultados</h3>
                 <p><strong>Intervalo para x:</strong> <span id="intervalo"></span></p>
                 <p><strong>Valor óptimo x:</strong> <span id="optX"></span></p>
                 <p><strong>Valor óptimo y:</strong> <span id="optY"></span></p>
                 <p><strong>Distancia mínima C:</strong> <span id="optC"></span></p>
+            </div>            <div id="geogebraContainer" style="margin-top:20px;">
+                <div class="geogebra-message">
+                    Por defecto la gráfica viene con los valores del ejercicio, pero puedes editarlo a los valores que pusiste!
+                </div>
+                <button id="toggleGeoGebra">Mostrar/Ocultar GeoGebra</button>                <div id="geogebraFrameWrapper" class="geogebra-responsive" style="display:none;">
+                    <iframe src="https://www.geogebra.org/calculator/ttqggamm?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+                </div>
+                <div id="geogebraFrameWrapper2" class="geogebra-responsive" style="display:none; margin-top: 20px;">
+                    <iframe src="https://www.geogebra.org/calculator/qszzxtun?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+                </div>
             </div>
         </section>
         <section id="inicioSection" class="expContainer creative-section">
-            <h1 class="creative-title">¡Bienvenido al Proyecto de Matemáticas!</h1>
+            <h1 class="creative-title">¡Bienvenido a nuestro Proyecto de Matemáticas!</h1>
             <p class="creative-text">Explora, aprende y resuelve problemas de optimización de manera interactiva y creativa.</p>
         </section>
         <section id="objetivosSection" class="expContainer creative-section" style="display:none;">
@@ -177,13 +186,9 @@
                     $$ y = \frac{a^2b}{(a^2+b^2)} = \frac {3.06(7)} {(3.06+49)} = \frac {21.43} {52.06} = 0.4116 $$ 
                 </div>
             </div>
-            <div class="expContainer paso">
-                <h1>Paso 10</h1>
-                <p>Visualización interactiva con GeoGebra:</p>
-                <iframe src="https://www.geogebra.org/calculator/w9s78uun?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
-            </div>
         </section>
     </main>
+    <script src="./JS/app.js"></script>
 </body>
-<script src="./JS/app.js"></script>
+
 </html>

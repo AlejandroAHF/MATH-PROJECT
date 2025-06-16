@@ -69,7 +69,7 @@ main{
 
 .info.show {
     opacity: 1;
-    max-height: 500px;
+    max-height: 1200px; /* Aumentar altura para mostrar todo el contenido matemático */
     padding: 10px;
     background: #fff;
 }
@@ -204,9 +204,7 @@ main{
     position: relative;
     width: 250px;
     font-family: monospace;
-  }
-  
-  .brutalist-input {
+  }    .brutalist-input {
     width: 100%;
     padding: 15px;
     font-size: 18px;
@@ -219,7 +217,8 @@ main{
     border-radius: 0;
     outline: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
+    box-shadow: 5px 5px 0 #000, 10px 10px 0 #6a11cb;
+    font-family: 'Poppins', Arial, sans-serif;
   }
   
   @keyframes glitch {
@@ -242,8 +241,7 @@ main{
       transform: translate(0);
     }
   }
-  
-  .brutalist-input:focus {
+    .brutalist-input:focus {
     animation: focus-pulse 4s cubic-bezier(0.25, 0.8, 0.25, 1) infinite,
       glitch 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
   }
@@ -320,11 +318,11 @@ main{
     transform: rotate(-1deg);
     z-index: 1;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: 'Poppins', Arial, sans-serif;
   }
-  
-  .brutalist-input:focus + .brutalist-label {
+    .brutalist-input:focus + .brutalist-label {
     transform: rotate(0deg) scale(1.05);
-    background-color: #4a90e2;
+    background-color: #6a11cb;
   }
   
   .smooth-type {
@@ -358,10 +356,10 @@ main{
       background-position: 0 0;
     }
   }
-  
-  .brutalist-input::placeholder {
+    .brutalist-input::placeholder {
     color: #888;
     transition: color 0.3s ease;
+    font-family: 'Poppins', Arial, sans-serif;
   }
   
   .brutalist-input:focus::placeholder {
@@ -371,17 +369,15 @@ main{
   .brutalist-input:focus {
     animation: focus-pulse 4s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
   }
-  
-  @keyframes focus-pulse {
+    @keyframes focus-pulse {
     0%,
     100% {
       border-color: #000;
     }
     50% {
-      border-color: #4a90e2;
+      border-color: #6a11cb;
     }
-  }  
-
+  }
   button {
     border: none;
     outline: none;
@@ -399,6 +395,36 @@ main{
   button:active {
     transform: translateY(5px);
     box-shadow: 0px 0px 0px 0px black;
+  }
+
+  /* Estilo específico para el botón de calcular */
+  #calcularBtn {
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.3);
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 12% auto 5% auto;
+    display: block;
+    width: auto;
+    max-width: 200px;
+  }
+
+  #calcularBtn:hover {
+    background: #1e63d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
+  }
+
+  #calcularBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 117, 252, 0.2);
   }
 
 /*responsividad*/
@@ -500,6 +526,59 @@ main{
     font-size: 11px;
     padding: 8px 16px;
   }
+  /* Responsividad para GeoGebra en pantallas pequeñas */
+.geogebra-responsive {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 80%; /* Aspecto más alto en móviles */
+    overflow: hidden;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.geogebra-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+#geogebraContainer {
+    width: 100%;
+    max-width: 100%;
+}
+
+#toggleGeoGebra {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 15px auto;
+    display: block;
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.3);
+}
+
+#toggleGeoGebra:hover {
+    background: #1e63d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
+}
+
+#toggleGeoGebra:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 117, 252, 0.2);
+  }
 }
 
 @media (max-width: 480px) {
@@ -541,4 +620,88 @@ main{
     font-size: 0.95rem;
     padding: 10px;
   }
+  .geogebra-responsive {
+    padding-bottom: 85%; /* Más altura en pantallas muy pequeñas */
+  }
+  
+  #toggleGeoGebra {
+    font-size: 14px;
+    padding: 10px 16px;
+    max-width: 100%;
+  }
+}
+
+/* Estilo específico para el mensaje de GeoGebra */
+.geogebra-message {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2575fc;
+    font-weight: 600;
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #2575fc;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.1);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/*responsividad para iframe de GeoGebra*/
+.geogebra-responsive {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 80%; /* Hacer el iframe más grande aumentando la altura */
+    overflow: hidden;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 1200px; /* Ancho máximo aún más grande */
+    margin: 0 auto; /* Centrar el iframe */
+}
+
+.geogebra-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+#geogebraContainer {
+    width: 100%;
+    max-width: 100%;
+}
+
+#toggleGeoGebra {
+    width: auto; /* Hacer el botón más pequeño */
+    max-width: 180px; /* Botón más pequeño */
+    margin: 0 auto 15px auto;
+    display: block;
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 10px 18px; /* Botón más pequeño */
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px; /* Texto más pequeño */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.3);
+}
+
+#toggleGeoGebra:hover {
+    background: #1e63d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
+}
+
+#toggleGeoGebra:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 117, 252, 0.2);
 }
