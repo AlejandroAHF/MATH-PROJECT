@@ -635,15 +635,15 @@ main{
 .geogebra-message {
     text-align: center;
     margin-bottom: 15px;
-    color: #2575fc;
+    color: #6a11cb;
     font-weight: 600;
-    background-color: #f0f8ff;
+    background-color: #f8f0ff;
     padding: 15px;
     border-radius: 8px;
-    border-left: 4px solid #2575fc;
+    border-left: 4px solid #6a11cb;
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 14px;
-    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.1);
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.1);
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
