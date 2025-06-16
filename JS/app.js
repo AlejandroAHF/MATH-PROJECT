@@ -116,9 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (denominador === 0) {
             alert('Los valores de a y b no pueden ser ambos cero.');
             return;
-        }
-
-        const x = (a * b * b) / denominador;
+        }        const x = (a * b * b) / denominador;
         const y = (a * a * b) / denominador;
         const C = Math.abs(a * b) / Math.sqrt(denominador);
 
@@ -127,12 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultadosDiv = document.getElementById('optResultados');
         resultadosDiv.style.display = 'block';
 
+        // Calcular intervalos para X y Y
+        const intervaloX = a < 0 ? `X: [${a}, 0]` : `X: [0, ${a}]`;
+        const intervaloY = b < 0 ? `Y: [${b}, 0]` : `Y: [0, ${b}]`;
+        
         const intervaloSpan = document.getElementById('intervalo');
-        intervaloSpan.textContent = a < 0 ? `[${a}, 0]` : `[0, ${a}]`;
+        intervaloSpan.textContent = `${intervaloX}, ${intervaloY}`;
 
         document.getElementById('optX').textContent = x.toFixed(4);
         document.getElementById('optY').textContent = y.toFixed(4);
-        document.getElementById('optC').textContent = C.toFixed(4);        // Mostrar GeoGebra desplegable - ya no es necesario mostrarlo aquí
+        document.getElementById('optC').textContent = C.toFixed(4);// Mostrar GeoGebra desplegable - ya no es necesario mostrarlo aquí
         // porque ahora siempre está visible
     });    // Mostrar/ocultar el iframe de GeoGebra
     const toggleGeoGebra = document.getElementById('toggleGeoGebra');
